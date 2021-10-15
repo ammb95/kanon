@@ -1,15 +1,45 @@
 import User from './user.model';
-
-class Repository {
-  constructor() {
+import '../../../util/array-methods';
+import UserNotFoundException from '../../exceptions/user-not-found';
+export default class Repository {
+  constructor(slotMachine) {
     this.users = [];
+    this.slotMachine = slotMachine;
   }
+
   create(draft) {
     const user = new User(draft);
     this.users.push(user);
     return user;
   }
-}
-const repository = new Repository();
 
-export default repository;
+  getUserById(id) {
+    return this.users.find(user => user.id === id);
+  }
+
+  getByEmail(email) {
+    return this.users.find(user => user.email === email);
+  }
+
+  modifyUser(id) {
+    this.users = this.users.map(user =>
+      user.id === id ? { ...user, coins: user.coins - 1 } : user
+    );
+  }
+
+  updateUserInUsersArray(user) {
+    this.users = this.users.replaceItem(u => u.id === user.id, user);
+  }
+
+  validateUser(user) {
+    if (!user) throw new UserNotFoundException();
+  }
+
+  play(id) {
+    const user = this.getUserById(id);
+    this.validateUser(user);
+    const gameResult = user.play(this.slotMachine);
+    this.updateUserInUsersArray(user);
+    return gameResult;
+  }
+}

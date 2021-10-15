@@ -1,7 +1,7 @@
-import MultipleMatchesException from './exceptions/multiple-matches';
-import NoDataException from './exceptions/no-data';
+import MultipleMatchesException from '../../exceptions/multiple-matches';
+import NoDataException from '../../exceptions/no-data';
 
-class Validators {
+export default class Validators {
   validateNoData(data) {
     if (data.length === 0) {
       throw new NoDataException();
@@ -14,7 +14,3 @@ class Validators {
     }
   }
 }
-
-const validators = new Validators();
-
-export default validators;

@@ -4,18 +4,18 @@ export default class Controller {
     this.validators = validators;
   }
 
-  create(req, res, next) {
+  async login(req, res, next) {
     try {
-      this.validators.validateUserCreation(req.body);
-      res.status(201).send(this.services.create(req.body));
+      this.validators.validateLoginData(req.body);
+      res.send(await this.services.login(req.body));
     } catch (error) {
       next(error);
     }
   }
 
-  play(req, res, next) {
+  logout(req, res, next) {
     try {
-      res.send(this.services.play(req.params.id));
+      res.send(this.services.logout(req.body));
     } catch (error) {
       next(error);
     }

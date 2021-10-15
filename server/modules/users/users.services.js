@@ -1,12 +1,13 @@
-import repository from './users.repository';
-import validators from './users.validators';
+export default class Services {
+  constructor(repository) {
+    this.repository = repository;
+  }
 
-class Services {
   create(draft) {
-    return repository.create(draft);
+    return this.repository.create(draft);
+  }
+
+  play(id) {
+    return this.repository.play(id);
   }
 }
-
-const services = new Services();
-
-export default services;

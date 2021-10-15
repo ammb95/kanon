@@ -5,7 +5,7 @@ const BASE_URL = 'https://restcountries.com/v3.1';
 const GET_ALL_URL = `${BASE_URL}/all`;
 const getByNameURL = countryName => `${BASE_URL}/name/${countryName}`;
 
-class Repository {
+export default class Repository {
   async getAll() {
     const { data } = await axios.get(GET_ALL_URL);
     return data;
@@ -23,7 +23,3 @@ class Repository {
     return [].concat(...results).removeDuplicates(c => c.name.common);
   }
 }
-
-const repository = new Repository();
-
-export default repository;

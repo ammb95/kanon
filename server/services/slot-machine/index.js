@@ -3,7 +3,7 @@ import '../../../util/array-methods';
 import prizeCalculator from './prize-calculator';
 import reels from './slot-machine.reels';
 
-class SlotMachine {
+export default class SlotMachine {
   constructor() {
     this.reels = reels;
   }
@@ -75,7 +75,3 @@ class SlotMachine {
     };
   }
 }
-
-const slotMachine = new SlotMachine();
-
-export default slotMachine;

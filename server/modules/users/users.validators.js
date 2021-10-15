@@ -6,7 +6,7 @@ const options = {
   stripUnknown: true,
 };
 
-class Validators {
+export default class Validators {
   validateUserCreation(draft) {
     const { error } = schema.validate(draft, options);
     if (error) {
@@ -15,7 +15,3 @@ class Validators {
     }
   }
 }
-
-const validators = new Validators();
-
-export default validators;

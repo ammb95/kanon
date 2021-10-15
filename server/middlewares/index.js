@@ -1,5 +1,5 @@
-import express from 'express';
-import errorHandler from './error-handler';
+import { json } from 'express';
+import handleError from './custom/handle-error';
 
-export const preMiddlewares = [express.json()];
-export const postMiddlewares = [errorHandler.handle];
+export const preMiddlewares = [json()];
+export const postMiddlewares = [handleError];

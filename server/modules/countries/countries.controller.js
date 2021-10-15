@@ -1,9 +1,11 @@
-import services from '../countries/countries.services';
+export default class Controller {
+  constructor(services) {
+    this.services = services;
+  }
 
-class Controller {
-  async getAll(_, res) {
+  async getAll(_, res, next) {
     try {
-      res.send(await services.getAll());
+      res.send(await this.services.getAll());
     } catch (error) {
       next(error);
     }
@@ -11,7 +13,7 @@ class Controller {
 
   async getByName(req, res, next) {
     try {
-      res.send(await services.getByName(req.body.countryName));
+      res.send(await this.services.getByName(req.body.countryName));
     } catch (error) {
       next(error);
     }
@@ -19,13 +21,9 @@ class Controller {
 
   async getManyByNames(req, res, next) {
     try {
-      res.send(await services.getManyByNames(req.body.countryNames));
+      res.send(await this.services.getManyByNames(req.body.countryNames));
     } catch (error) {
       next(error);
     }
   }
 }
-
-const controller = new Controller();
-
-export default controller;
