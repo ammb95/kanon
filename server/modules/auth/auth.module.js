@@ -10,6 +10,5 @@ export const controller = new Controller(services, validators);
 const module = Router();
 
 module.post('/login', controller.login.bind(controller));
-module.delete('/logout', controller.logout.bind(controller));
 
 export default module;

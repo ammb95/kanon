@@ -1,5 +1,6 @@
 import { sign } from 'jsonwebtoken';
 import { JWT_KEY } from '../../services/environment';
+import { repository as usersRepository } from '../users/users.module';
 
 export default class Services {
   constructor(validators) {
@@ -12,8 +13,10 @@ export default class Services {
 
   async login(user) {
     await this.validators.validateUser(user);
-    return { token: this.getToken(user) };
-  }
 
-  logout({ token }) {}
+    return {
+      user: usersRepository.getByEmail(user.email),
+      token: this.getToken(user),
+    };
+  }
 }

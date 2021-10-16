@@ -12,8 +12,8 @@ export const controller = new Controller(services);
 const module = Router();
 
 module.get('/countries/all', controller.getAll.bind(controller));
-module.post('/countries/by-name', controller.getByName.bind(controller));
-module.post(
+module.get('/countries/by-name', controller.getByName.bind(controller));
+module.get(
   '/countries/many-by-names',
   controller.getManyByNames.bind(controller)
 );

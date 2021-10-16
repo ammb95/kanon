@@ -12,12 +12,4 @@ export default class Controller {
       next(error);
     }
   }
-
-  logout(req, res, next) {
-    try {
-      res.send(this.services.logout(req.body));
-    } catch (error) {
-      next(error);
-    }
-  }
 }

@@ -18,7 +18,7 @@ export function getCountryByName(countryName) {
     try {
       const {
         data: { country },
-      } = await api.post('/countries/by-name', { countryName });
+      } = await api.get('/countries/by-name', { params: { countryName } });
       dispatch(setCountries(country));
     } catch (error) {
       console.log(error);
@@ -31,7 +31,9 @@ export function getManyCountriesByNames(countryNames) {
     try {
       const {
         data: { countries },
-      } = await api.post('/countries/many-by-names', { countryNames });
+      } = await api.get('/countries/many-by-names', {
+        params: { countryNames },
+      });
       dispatch(setCountries(countries));
     } catch (error) {
       console.log(error);
