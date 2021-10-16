@@ -10,7 +10,7 @@ export default class Repository {
   create(draft) {
     const user = new User(draft);
     this.users.push(user);
-    return user;
+    return { user };
   }
 
   getUserById(id) {

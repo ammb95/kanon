@@ -7,12 +7,12 @@ const getByNameURL = countryName => `${BASE_URL}/name/${countryName}`;
 
 export default class Repository {
   async getAll() {
-    const { data } = await axios.get(GET_ALL_URL);
-    return data;
+    const { data: countries } = await axios.get(GET_ALL_URL);
+    return { countries };
   }
 
   async getByName(countryName) {
-    const { data } = await axios.get(getByNameURL(countryName));
+    const { data: countries } = await axios.get(getByNameURL(countryName));
     return data;
   }
 
@@ -20,6 +20,8 @@ export default class Repository {
     const results = await Promise.all(
       countryNames.map(async countryName => await this.getByName(countryName))
     );
-    return [].concat(...results).removeDuplicates(c => c.name.common);
+    return {
+      countries: [].concat(...results).removeDuplicates(c => c.name.common),
+    };
   }
 }
