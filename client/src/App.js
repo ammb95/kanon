@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import './App.css';
+import AllCountries from './pages/all-countries';
 
 function App() {
-  return <h1>Hello world!</h1>;
+  return (
+    <div className='main'>
+      <AllCountries />
+    </div>
+  );
 }
 
 const mapStateToProps = state => state;

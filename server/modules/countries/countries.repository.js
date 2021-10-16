@@ -6,14 +6,21 @@ const GET_ALL_URL = `${BASE_URL}/all`;
 const getByNameURL = countryName => `${BASE_URL}/name/${countryName}`;
 
 export default class Repository {
+  formatCountries(countries) {
+    return countries.map(c => ({
+      name: c.name.common,
+      flag: c.flags.png,
+      area: c.area,
+    }));
+  }
   async getAll() {
     const { data: countries } = await axios.get(GET_ALL_URL);
-    return { countries };
+    return { countries: this.formatCountries(countries) };
   }
 
   async getByName(countryName) {
     const { data: countries } = await axios.get(getByNameURL(countryName));
-    return countries;
+    return this.formatCountries(countries);
   }
 
   async getManyByNames(countryNames) {

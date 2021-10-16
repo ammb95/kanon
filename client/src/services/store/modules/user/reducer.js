@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGOUT_SUCCESS } from './actionTypes';
+import { LOGIN_SUCCESS, LOGOUT } from './actionTypes';
 import api from '../../../api';
 
 const initialState = {
@@ -26,7 +26,7 @@ export default function reducer(state = initialState, { type, payload }) {
         coins,
       };
     }
-    case LOGOUT_SUCCESS: {
+    case LOGOUT: {
       localStorage.clear();
       return initialState;
     }
