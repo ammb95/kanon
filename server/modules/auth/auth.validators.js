@@ -5,7 +5,7 @@ import InvalidPasswordException from '../../exceptions/invalid-password';
 import UserNotFoundException from '../../exceptions/user-not-found';
 import InvalidTokenException from '../../exceptions/invalid-token';
 import NoTokenException from '../../exceptions/no-token';
-import { JWT_KEY } from '../../environment';
+import { JWT_KEY } from '../../services/environment';
 import { repository as usersRepository } from '../users/users.module';
 
 const joiOptions = {
@@ -15,10 +15,6 @@ const joiOptions = {
 };
 
 export default class Validators {
-  // constructor(usersRepository) {
-  //   this.usersRepository = usersRepository;
-  // }
-
   verifyToken(token) {
     try {
       verify(token, JWT_KEY);

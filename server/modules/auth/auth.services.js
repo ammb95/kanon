@@ -1,5 +1,5 @@
 import { sign } from 'jsonwebtoken';
-import { JWT_KEY } from '../../environment';
+import { JWT_KEY } from '../../services/environment';
 
 export default class Services {
   constructor(validators) {

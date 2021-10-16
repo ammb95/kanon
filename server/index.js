@@ -1,6 +1,6 @@
 import express from 'express';
 import applyMiddlewares from './services/apply-middlwares';
-import * as environment from './environment';
+import * as environment from './services/environment';
 
 const server = express();
 
