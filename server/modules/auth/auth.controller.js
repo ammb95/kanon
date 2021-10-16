@@ -12,4 +12,16 @@ export default class Controller {
       next(error);
     }
   }
+
+  async rehydrate(req, res, next) {
+    try {
+      res.send(
+        await this.services.rehydrate(
+          this.validators.getTokenFromHeaders(req.headers)
+        )
+      );
+    } catch (error) {
+      next(error);
+    }
+  }
 }

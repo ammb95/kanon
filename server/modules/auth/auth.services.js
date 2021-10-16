@@ -19,4 +19,9 @@ export default class Services {
       token: this.getToken(user),
     };
   }
+
+  rehydrate(token) {
+    const { email } = this.validators.verifyToken(token);
+    return { user: usersRepository.getByEmail(email) };
+  }
 }

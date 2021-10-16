@@ -14,7 +14,9 @@ export default class Repository {
   }
 
   getUserById(id) {
-    return this.users.find(user => user.id === id);
+    const user = this.users.find(user => user.id === id);
+    delete user.password;
+    return user;
   }
 
   getByEmail(email) {
