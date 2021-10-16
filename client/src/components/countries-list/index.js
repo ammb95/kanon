@@ -1,6 +1,6 @@
 import Country from '../country';
 
-export default function CountriesList({ countries, filter }) {
+export default function CountriesList({ countries, filter = '' }) {
   return (
     <>
       {countries

@@ -1,7 +1,10 @@
+import Flag from './country.flag';
+import './styles.css';
+
 export default function Country({ country }) {
   return (
     <div className='country'>
-      <img className='flag' src={country.flag} alt='flag'></img>
+      <Flag flag={country.flag} />
       {country.name}
     </div>
   );

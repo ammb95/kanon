@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import './App.css';
-import AllCountries from './pages/all-countries';
+import SearchCountries from './pages/search-countries';
 
 function App() {
   return (
     <div className='main'>
-      <AllCountries />
+      <SearchCountries />
     </div>
   );
 }

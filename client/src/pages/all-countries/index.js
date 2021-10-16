@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import LoadingWrapper from '../../components/loading-wrapper';
+import SearchInput from '../../components/search-input';
 import CountriesList from '../../components/countries-list';
-import SearchInput from './all-countries.search-input';
-import './all-countries.styles.css';
 
 export default function AllCountries() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +21,11 @@ export default function AllCountries() {
   return (
     <LoadingWrapper isLoading={isLoading}>
       <h1>All countries</h1>
-      <SearchInput filter={filter} setFilter={setFilter} />
+      <SearchInput
+        onChange={({ target: { value } }) => setFilter(value)}
+        value={filter}
+        placeholder='Search by name'
+      />
       <CountriesList countries={countries} filter={filter} />
     </LoadingWrapper>
   );
