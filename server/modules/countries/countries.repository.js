@@ -13,7 +13,7 @@ export default class Repository {
 
   async getByName(countryName) {
     const { data: countries } = await axios.get(getByNameURL(countryName));
-    return data;
+    return countries;
   }
 
   async getManyByNames(countryNames) {
@@ -21,7 +21,7 @@ export default class Repository {
       countryNames.map(async countryName => await this.getByName(countryName))
     );
     return {
-      countries: [].concat(...results).removeDuplicates(c => c.name.common),
+      countries: [].concat(...results).removeDuplicates(c => c.area),
     };
   }
 }

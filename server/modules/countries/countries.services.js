@@ -7,9 +7,9 @@ export default class Services {
     return await this.repository.getAll();
   }
   async getByName(countryName) {
-    const data = await this.repository.getByName(countryName);
-    this.validators.validateSingleCountry(data);
-    return data;
+    const countries = await this.repository.getByName(countryName);
+    this.validators.validateSingleCountry(countries);
+    return { country: countries[0] };
   }
 
   async getManyByNames(countryNames) {

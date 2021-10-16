@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import StoreWrapper from './components/store-wrapper';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StoreWrapper>
+      <App />
+    </StoreWrapper>
   </React.StrictMode>,
   document.getElementById('root')
 );
