@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
 import './App.css';
-import ManyCountriesSearch from './pages/many-countries-search';
+import Header from './components/header';
+import Router from './services/router';
 
 function App() {
   return (
-    <div className='main'>
-      <ManyCountriesSearch />
-    </div>
+    <>
+      <Header />
+      <div className='main'>
+        <Router />
+      </div>
+    </>
   );
 }
 
