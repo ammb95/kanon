@@ -11,7 +11,7 @@ export function loginRequest(credentials) {
         dispatch(loginSuccess({ user, token }));
       }
     } catch (error) {
-      console.log(error);
+      window.alert(error.message);
     }
   };
 }

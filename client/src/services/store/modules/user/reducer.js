@@ -2,6 +2,7 @@ import { LOGIN_SUCCESS, LOGOUT } from './actionTypes';
 import api from '../../../api';
 
 const initialState = {
+  token: '',
   id: '',
   name: '',
   email: '',
@@ -20,6 +21,7 @@ export default function reducer(state = initialState, { type, payload }) {
       api.defaults.headers.Authorization = token;
 
       return {
+        token,
         id,
         name,
         email,

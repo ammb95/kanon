@@ -14,7 +14,7 @@ export default class Services {
   async login(userCredentials) {
     await this.validators.validateUser(userCredentials);
     const user = usersRepository.getByEmail(userCredentials.email);
-    delete user.email;
+    delete user.password;
 
     return {
       user,
@@ -25,7 +25,7 @@ export default class Services {
   rehydrate(token) {
     const { email } = this.validators.verifyToken(token);
     const user = usersRepository.getByEmail(email);
-    delete user.email;
+    delete user.password;
     return { user };
   }
 }

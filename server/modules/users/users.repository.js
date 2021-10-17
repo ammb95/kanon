@@ -14,14 +14,17 @@ export default class Repository {
   }
 
   getUserById(id) {
-    const user = this.users.find(user => user.id === id);
+    const user = Object.assign(
+      {},
+      this.users.find(user => user.id === id)
+    );
     delete user.password;
     return user;
   }
 
   getByEmail(email) {
     const user = this.users.find(user => user.email === email);
-    return user;
+    return Object.assign({}, user);
   }
 
   modifyUser(id) {

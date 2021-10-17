@@ -19,14 +19,16 @@ export default function AllCountries() {
   }, []);
 
   return (
-    <LoadingWrapper isLoading={isLoading}>
+    <>
       <h1>All countries</h1>
-      <TextInput
-        onChange={({ target: { value } }) => setFilter(value)}
-        value={filter}
-        placeholder='Search by name'
-      />
-      <FilteredCountriesList countries={countries} filter={filter} />
-    </LoadingWrapper>
+      <LoadingWrapper isLoading={isLoading}>
+        <TextInput
+          onChange={({ target: { value } }) => setFilter(value)}
+          value={filter}
+          placeholder='Search by name'
+        />
+        <FilteredCountriesList countries={countries} filter={filter} />
+      </LoadingWrapper>
+    </>
   );
 }

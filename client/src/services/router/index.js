@@ -1,16 +1,25 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import useAuthRedirect from '../../hooks/useAuthRedirect';
 import routes from './routes';
 
+export const filterValidRoutes = isAuth => {
+  return route =>
+    route.isAuthIndependent ||
+    (isAuth && route.isAuthProtected) ||
+    (!isAuth && !route.isAuthProtected);
+};
+
 export default function Router() {
+  useAuthRedirect();
+  const isAuth = !!localStorage.token;
+
   return (
-    <BrowserRouter>
-      <Switch>
-        {routes.map(({ path, Page }) => (
-          <Route key={path} path={path}>
-            <Page />
-          </Route>
-        ))}
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      {routes.filter(filterValidRoutes(isAuth)).map(({ path, Page }) => (
+        <Route key={path} path={path}>
+          <Page />
+        </Route>
+      ))}
+    </Switch>
   );
 }
