@@ -1,5 +1,5 @@
-import './styles.css';
 import LoginForm from './login.form';
+import './styles.css';
 
 export default function Login() {
   return (

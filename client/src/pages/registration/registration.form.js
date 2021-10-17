@@ -69,7 +69,7 @@ export default function RegistrationForm() {
               errors={errors}
               touched={touched}
             />
-            <Button type='submit'>Submit</Button>
+            <Button type='submit'>Register</Button>
           </Form>
         );
       }}

@@ -41,7 +41,9 @@ export default function LoginForm() {
               errors={errors}
               touched={touched}
             />
-            <Button type='submit'>Login</Button>
+            <Button id='login-btn' type='submit'>
+              Login
+            </Button>
           </Form>
         );
       }}

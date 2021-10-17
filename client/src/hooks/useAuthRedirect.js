@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router';
+import routes from '../services/router/routes';
 
 export default function useAuthRedirect() {
   const history = useHistory();
@@ -9,9 +10,9 @@ export default function useAuthRedirect() {
 
   useEffect(() => {
     const isNotAuth = !isAuth;
-    const isNotPublicPath = !(
-      location.pathname === '/login' || location.pathname === '/registration'
-    );
+    const route = routes.find(r => r.path === location.pathname);
+    const isNotPublicPath = route.isAuthProtected && !route.isAuthIndependent;
+
     if (isAuth && location.pathname === '/login') {
       history.push('/all-countries');
     }

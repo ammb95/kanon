@@ -10,13 +10,19 @@
   flex-direction: column;
   margin-bottom: 24px;
 }
-.login-wrapper > form > .field-wrapper > input {
+@media (max-width: 576px) {
+  .login-wrapper > form {
+    width: 100%;
+  }
+}
+.login-wrapper > form > .field-wrapper {
   width: 100%;
 }
 
 .login-wrapper > form > #login-btn {
   margin-top: 24px;
   align-self: center;
+  width: 100%;
 }
 
 .login-wrapper > form > :not(:last-child) {
