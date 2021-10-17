@@ -1,15 +1,11 @@
 import Country from '../country';
 
-export default function CountriesList({ countries, filter = '' }) {
+export default function CountriesList({ countries }) {
   return (
     <>
-      {countries
-        .filter(country =>
-          country.name.toLowerCase().includes(filter.toLowerCase())
-        )
-        .map(country => (
-          <Country key={country.area} country={country} />
-        ))}
+      {countries.map(country => (
+        <Country key={country.area} country={country} />
+      ))}
     </>
   );
 }

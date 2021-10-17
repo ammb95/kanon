@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import './App.css';
-import SearchCountries from './pages/search-countries';
+import ManyCountriesSearch from './pages/many-countries-search';
 
 function App() {
   return (
     <div className='main'>
-      <SearchCountries />
+      <ManyCountriesSearch />
     </div>
   );
 }

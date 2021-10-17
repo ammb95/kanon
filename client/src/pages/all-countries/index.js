@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import LoadingWrapper from '../../components/loading-wrapper';
 import SearchInput from '../../components/search-input';
-import CountriesList from '../../components/countries-list';
+import FilteredCountriesList from '../../components/filtered-countries-list';
 
 export default function AllCountries() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +26,7 @@ export default function AllCountries() {
         value={filter}
         placeholder='Search by name'
       />
-      <CountriesList countries={countries} filter={filter} />
+      <FilteredCountriesList countries={countries} filter={filter} />
     </LoadingWrapper>
   );
 }
