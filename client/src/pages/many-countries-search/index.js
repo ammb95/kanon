@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
-import SearchInput from '../../components/search-input';
+import TextInput from '../../components/input';
 import Button from '../../components/button';
 import SearchResult from './many-countries-search.search-result';
 
@@ -42,7 +42,7 @@ export default function ManyCountriesSearch() {
   return (
     <>
       <h1>Many countries search</h1>
-      <SearchInput
+      <TextInput
         placeholder={`Insert country names separated by space (min ${MIN_INPUT_LENGTH} characters)!`}
         onChange={({ target: { value } }) => setSearch(value)}
       />

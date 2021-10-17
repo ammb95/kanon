@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import LoadingWrapper from '../../components/loading-wrapper';
-import SearchInput from '../../components/search-input';
+import TextInput from '../../components/input';
 import FilteredCountriesList from '../../components/filtered-countries-list';
 
 export default function AllCountries() {
@@ -21,7 +21,7 @@ export default function AllCountries() {
   return (
     <LoadingWrapper isLoading={isLoading}>
       <h1>All countries</h1>
-      <SearchInput
+      <TextInput
         onChange={({ target: { value } }) => setFilter(value)}
         value={filter}
         placeholder='Search by name'

@@ -11,17 +11,21 @@ export default class Services {
     return `Bearer ${sign({ user }, JWT_KEY)}`;
   }
 
-  async login(user) {
-    await this.validators.validateUser(user);
+  async login(userCredentials) {
+    await this.validators.validateUser(userCredentials);
+    const user = usersRepository.getByEmail(userCredentials.email);
+    delete user.email;
 
     return {
-      user: usersRepository.getByEmail(user.email),
-      token: this.getToken(user),
+      user,
+      token: this.getToken(userCredentials),
     };
   }
 
   rehydrate(token) {
     const { email } = this.validators.verifyToken(token);
-    return { user: usersRepository.getByEmail(email) };
+    const user = usersRepository.getByEmail(email);
+    delete user.email;
+    return { user };
   }
 }

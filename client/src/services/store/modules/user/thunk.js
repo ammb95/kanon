@@ -7,7 +7,9 @@ export function loginRequest(credentials) {
         data: { token, user },
       } = await api.post('/login', credentials);
 
-      dispatch(loginSuccess({ user, token }));
+      if (token && user) {
+        dispatch(loginSuccess({ user, token }));
+      }
     } catch (error) {
       console.log(error);
     }

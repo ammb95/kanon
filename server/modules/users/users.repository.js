@@ -21,7 +21,6 @@ export default class Repository {
 
   getByEmail(email) {
     const user = this.users.find(user => user.email === email);
-    delete user.password;
     return user;
   }
 

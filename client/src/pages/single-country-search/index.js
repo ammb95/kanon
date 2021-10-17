@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
 import SearchResult from './single-country-search.search-result';
-import SearchInput from '../../components/search-input';
+import TextInput from '../../components/input';
 import Button from '../../components/button';
 
 const MIN_INPUT_LENGTH = 4;
@@ -41,7 +41,7 @@ export default function SingleCountrySearch() {
   return (
     <>
       <h1>Single country search</h1>
-      <SearchInput
+      <TextInput
         placeholder={`Insert country name (min ${MIN_INPUT_LENGTH} characters)!`}
         onChange={({ target: { value } }) => setSearch(value)}
       />

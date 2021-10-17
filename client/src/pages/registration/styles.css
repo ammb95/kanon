@@ -1,0 +1,28 @@
+.registration-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-wrapper > form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.registration-wrapper > form > .field-wrapper > input {
+  width: 100%;
+}
+
+.registration-wrapper > form > #registration-btn {
+  margin-top: 24px;
+  align-self: center;
+}
+
+.registration-wrapper > form > :not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.create-account-link {
+  font-size: 12px;
+}
