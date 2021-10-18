@@ -3,8 +3,19 @@ import Login from '../../pages/login';
 import Registration from '../../pages/registration';
 import SingleCountrySearch from '../../pages/single-country-search';
 import ManyCountriesSearch from '../../pages/many-countries-search';
+import DefaultRoute from './default-route';
 
 const routes = [
+  {
+    title: 'default',
+    path: '/',
+    Page: DefaultRoute,
+    isAuthProtected: false,
+    isAuthIndependent: true,
+    props: {
+      exact: true,
+    },
+  },
   {
     title: 'Login',
     path: '/login',

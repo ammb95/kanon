@@ -15,8 +15,8 @@ export default function Router() {
 
   return (
     <Switch>
-      {routes.filter(filterValidRoutes(isAuth)).map(({ path, Page }) => (
-        <Route key={path} path={path}>
+      {routes.filter(filterValidRoutes(isAuth)).map(({ path, Page, props }) => (
+        <Route key={path} path={path} {...props}>
           <Page />
         </Route>
       ))}
