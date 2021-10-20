@@ -1,5 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import useAuthRedirect from '../../hooks/useAuthRedirect';
+import useRehydrate from '../../hooks/useRehydrate';
+import useRoutePageTitle from '../../hooks/useRoutePageTitle';
 import routes from './routes';
 
 export const filterValidRoutes = isAuth => {
@@ -11,6 +13,8 @@ export const filterValidRoutes = isAuth => {
 
 export default function Router() {
   useAuthRedirect();
+  useRoutePageTitle();
+  useRehydrate();
   const isAuth = !!localStorage.token;
 
   return (

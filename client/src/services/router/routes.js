@@ -4,6 +4,7 @@ import Registration from '../../pages/registration';
 import SingleCountrySearch from '../../pages/single-country-search';
 import ManyCountriesSearch from '../../pages/many-countries-search';
 import DefaultRoute from './default-route';
+import SlotMachine from '../../pages/slot-machine';
 
 const routes = [
   {
@@ -50,6 +51,13 @@ const routes = [
     Page: ManyCountriesSearch,
     isAuthProtected: false,
     isAuthIndependent: true,
+  },
+  {
+    title: 'Slot Machine',
+    path: '/slot-machine',
+    Page: SlotMachine,
+    isAuthProtected: true,
+    isAuthIndependent: false,
   },
 ];
 

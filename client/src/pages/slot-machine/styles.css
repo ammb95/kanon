@@ -1,0 +1,101 @@
+.user-info {
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+
+  padding: 12px 24px;
+  width: 350px;
+
+  margin-bottom: 0px;
+  margin-right: 24px;
+}
+
+.slot-machine-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.game {
+  border: 1px solid lightgray;
+  background-color: lightgray;
+
+  padding: 12px 24px;
+  /* width: 350px; */
+}
+
+.game > button {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .slot-machine-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .user-info {
+    margin-bottom: 24px;
+    margin-right: 0px;
+  }
+
+  .user-info,
+  .game,
+  .fruits {
+    width: 100%;
+  }
+}
+
+.fruits,
+.empty-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.result {
+  padding: 6px 24px;
+  background-color: white;
+}
+
+.fruit {
+  width: 150px;
+  height: 150px;
+
+  border: 1px solid black;
+}
+
+.coin {
+  width: 30px;
+  height: 30px;
+
+  margin-left: 12px;
+}
+
+.prize,
+.user-coins {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.prize {
+  font-size: 24px;
+  margin-right: 24px;
+  justify-content: end;
+}
+
+.empty-result {
+  font-size: 100px;
+}
+
+.interrogation-sign {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}

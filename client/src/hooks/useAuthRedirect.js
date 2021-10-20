@@ -10,11 +10,12 @@ export default function useAuthRedirect() {
 
   useEffect(() => {
     const isNotAuth = !isAuth;
-    const route = routes.find(r => r.path === location.pathname);
-    const isNotPublicPath = route.isAuthProtected && !route.isAuthIndependent;
+    const currRoute = routes.find(r => r.path === location.pathname);
+    const isNotPublicPath =
+      currRoute.isAuthProtected && !currRoute.isAuthIndependent;
 
     if (isAuth && location.pathname === '/login') {
-      history.push('/all-countries');
+      history.push('/slot-machine');
     }
     if (isNotAuth && isNotPublicPath) {
       history.push('/login');
