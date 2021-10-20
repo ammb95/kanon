@@ -23,7 +23,9 @@ export default class Services {
   }
 
   rehydrate(token) {
-    const { email } = this.validators.verifyToken(token);
+    const {
+      user: { email },
+    } = this.validators.verifyToken(token);
     const user = usersRepository.getByEmail(email);
     delete user.password;
     return { user };

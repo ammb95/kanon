@@ -1,5 +1,5 @@
 import axios from 'axios';
-import '../../../util/array-methods';
+import '../../util/array-methods';
 
 const BASE_URL = 'https://restcountries.com/v3.1';
 const GET_ALL_URL = `${BASE_URL}/all`;

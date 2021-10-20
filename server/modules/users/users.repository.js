@@ -1,5 +1,5 @@
 import User from './user.model';
-import '../../../util/array-methods';
+import '../../util/array-methods';
 import UserNotFoundException from '../../exceptions/user-not-found';
 export default class Repository {
   constructor(slotMachine) {
@@ -14,12 +14,7 @@ export default class Repository {
   }
 
   getUserById(id) {
-    const user = Object.assign(
-      {},
-      this.users.find(user => user.id === id)
-    );
-    delete user.password;
-    return user;
+    return this.users.find(user => user.id === id);
   }
 
   getByEmail(email) {
