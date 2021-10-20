@@ -11,7 +11,11 @@ export function loginRequest(credentials) {
         dispatch(loginSuccess({ user, token }));
       }
     } catch (error) {
-      window.alert(error.message);
+      if (error.message === 'Request failed with status code 404') {
+        window.alert('User not found!');
+      } else {
+        window.alert(error.message);
+      }
     }
   };
 }

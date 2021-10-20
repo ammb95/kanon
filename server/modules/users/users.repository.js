@@ -19,6 +19,7 @@ export default class Repository {
 
   getByEmail(email) {
     const user = this.users.find(user => user.email === email);
+    this.validateUser(user);
     return Object.assign({}, user);
   }
 
