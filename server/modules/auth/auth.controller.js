@@ -13,9 +13,13 @@ export default class Controller {
     }
   }
 
-  logout(req, res, next) {
+  async rehydrate(req, res, next) {
     try {
-      res.send(this.services.logout(req.body));
+      res.send(
+        await this.services.rehydrate(
+          this.validators.getTokenFromHeaders(req.headers)
+        )
+      );
     } catch (error) {
       next(error);
     }

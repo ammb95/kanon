@@ -10,6 +10,10 @@ export const controller = new Controller(services, validators);
 const module = Router();
 
 module.post('/login', controller.login.bind(controller));
-module.delete('/logout', controller.logout.bind(controller));
+module.get(
+  '/rehydrate',
+  validators.validateSession.bind(validators),
+  controller.rehydrate.bind(controller)
+);
 
 export default module;

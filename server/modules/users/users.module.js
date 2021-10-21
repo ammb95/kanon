@@ -14,7 +14,7 @@ export const controller = new Controller(services, validators);
 
 const module = Router();
 
-module.post('/users', controller.create.bind(controller));
+module.post('/register', controller.create.bind(controller));
 module.post(
   '/users/:id/play',
   authValidators.validateSession.bind(authValidators),

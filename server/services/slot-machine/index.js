@@ -1,5 +1,5 @@
 import { NO_PRIZE, NUM_OF_SLOTS } from './slot-machine.constants';
-import '../../../util/array-methods';
+import '../../util/array-methods';
 import prizeCalculator from './prize-calculator';
 import reels from './slot-machine.reels';
 

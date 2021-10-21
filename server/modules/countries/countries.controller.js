@@ -13,7 +13,7 @@ export default class Controller {
 
   async getByName(req, res, next) {
     try {
-      res.send(await this.services.getByName(req.body.countryName));
+      res.send(await this.services.getByName(req.query.countryName));
     } catch (error) {
       next(error);
     }
@@ -21,7 +21,7 @@ export default class Controller {
 
   async getManyByNames(req, res, next) {
     try {
-      res.send(await this.services.getManyByNames(req.body.countryNames));
+      res.send(await this.services.getManyByNames(req.query.countryNames));
     } catch (error) {
       next(error);
     }

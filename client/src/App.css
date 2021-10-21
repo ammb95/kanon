@@ -1,0 +1,12 @@
+html {
+  width: 100vw;
+}
+
+.main {
+  padding: 25px 70px;
+}
+@media (max-width: 576px) {
+  .main {
+    padding: 25px 50px;
+  }
+}

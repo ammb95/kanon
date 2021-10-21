@@ -1,5 +1,5 @@
 import User from './user.model';
-import '../../../util/array-methods';
+import '../../util/array-methods';
 import UserNotFoundException from '../../exceptions/user-not-found';
 export default class Repository {
   constructor(slotMachine) {
@@ -10,7 +10,7 @@ export default class Repository {
   create(draft) {
     const user = new User(draft);
     this.users.push(user);
-    return user;
+    return { user };
   }
 
   getUserById(id) {
@@ -18,7 +18,9 @@ export default class Repository {
   }
 
   getByEmail(email) {
-    return this.users.find(user => user.email === email);
+    const user = this.users.find(user => user.email === email);
+    this.validateUser(user);
+    return Object.assign({}, user);
   }
 
   modifyUser(id) {

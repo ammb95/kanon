@@ -1,5 +1,6 @@
 import { sign } from 'jsonwebtoken';
 import { JWT_KEY } from '../../services/environment';
+import { repository as usersRepository } from '../users/users.module';
 
 export default class Services {
   constructor(validators) {
@@ -10,10 +11,23 @@ export default class Services {
     return `Bearer ${sign({ user }, JWT_KEY)}`;
   }
 
-  async login(user) {
-    await this.validators.validateUser(user);
-    return { token: this.getToken(user) };
+  async login(userCredentials) {
+    await this.validators.validateUser(userCredentials);
+    const user = usersRepository.getByEmail(userCredentials.email);
+    delete user.password;
+
+    return {
+      user,
+      token: this.getToken(userCredentials),
+    };
   }
 
-  logout({ token }) {}
+  rehydrate(token) {
+    const {
+      user: { email },
+    } = this.validators.verifyToken(token);
+    const user = usersRepository.getByEmail(email);
+    delete user.password;
+    return { user };
+  }
 }

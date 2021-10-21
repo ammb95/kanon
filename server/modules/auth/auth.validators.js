@@ -17,7 +17,7 @@ const joiOptions = {
 export default class Validators {
   verifyToken(token) {
     try {
-      verify(token, JWT_KEY);
+      return verify(token, JWT_KEY);
     } catch (error) {
       throw new InvalidTokenException();
     }
